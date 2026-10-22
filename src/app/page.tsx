@@ -82,7 +82,9 @@ export default function GamePage() {
     "https://script.google.com/macros/s/AKfycbwNFm57F3v8RyXFVKfITtJqpk36H3zKfk1V82i36MtyfkV0mZCNHSYaQt4eZCclfhG8/exec";
 
   const [googleSheetUrl, setGoogleSheetUrl] = useState(
-    process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || DEFAULT_SCRIPT_URL
+    process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL ||
+      process.env.NEXT_PUBLIC_GOOGLE_SHEETS_SCRIPT_URL ||
+      DEFAULT_SCRIPT_URL
   );
   const [showSettings, setShowSettings] = useState(false);
 
