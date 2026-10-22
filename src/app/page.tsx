@@ -77,9 +77,12 @@ export default function GamePage() {
   const [authorName, setAuthorName] = useState("우아연");
   const [isEditingAuthor, setIsEditingAuthor] = useState(false);
 
-  // 구글 시트 웹앱 URL (.env.local의 NEXT_PUBLIC_GOOGLE_SCRIPT_URL 키 값 자동 사용)
+  // 구글 시트 웹앱 URL (환경변수 또는 기본 배포 URL fallback 적용으로 Vercel에서도 즉시 동작)
+  const DEFAULT_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbwNFm57F3v8RyXFVKfITtJqpk36H3zKfk1V82i36MtyfkV0mZCNHSYaQt4eZCclfhG8/exec";
+
   const [googleSheetUrl, setGoogleSheetUrl] = useState(
-    process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || ""
+    process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || DEFAULT_SCRIPT_URL
   );
   const [showSettings, setShowSettings] = useState(false);
 
